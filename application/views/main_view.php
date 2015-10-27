@@ -11,7 +11,7 @@
  if(!isset($_SESSION['CID'])){
  
  ?>
- <?=$msg;?>
+    
  <form action="#" method="post">
      <p>Введіть логин: <input type="text" name="nick" placeholder="login" required value="" style="text-align:center" autofocus/></p>
         <p>Введіть пароль: <input type="password" name="psw" value="" required style="text-align:center"/></p>
