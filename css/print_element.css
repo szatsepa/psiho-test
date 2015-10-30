@@ -1,0 +1,86 @@
+body{
+    width: 1024px;
+    font-family: sans-serif;
+    font-size: 1.0em;
+    color: black;
+}
+div{
+    /*outline: solid 1px red;*/
+}
+div.dprint{
+    
+    width: 980px;
+    /*outline: solid 1px red;*/
+}
+table{
+    border: black solid 1px;
+    /*width: 90%;*/
+    font-family: sans-serif;
+    font-size: .9em;
+    color: black;
+    
+}
+table tr{
+    border: #000 solid 1px;
+}
+table tbody tr td{
+    border: #000 solid 1px;
+}
+table tbody tr.info{
+    text-align: center;
+    font-weight: normal;
+    background-color: RGB(222, 222, 222);
+}
+#r1{
+    text-align: left;
+    font-weight: bold;
+    background-color: RGB(19, 255, 116);
+}
+table tbody tr.foot{
+    text-align: right;
+    font-weight: bold;
+    background-color: RGB(249, 201, 16);
+}
+table tbody tr.imprest{
+    text-align: center;
+    font-weight: normal;
+    background-color: #ff6633;
+}
+table tbody tr td:eq(0){
+    font-weight: bold;
+}
+
+table.info_tables thead tr th{
+    border: black solid 1px;
+}
+table#table_woods{
+    width: 600px;
+}
+div#stamp {
+    position: absolute;
+    z-index: 9999;
+    width: 210px;
+    left: 495px;
+    top: 2px;
+}
+/*div#undefined{
+    width: 1024px;
+}*/
+div#tfoot{
+    height: 160px;
+    position: relative;
+    padding-left: 30px;
+}
+div#tablesheet p{
+    text-align: left;
+    font-weight: bolder;
+}
+div p.phead{
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+p#res{
+    text-align: center;
+    font-weight: bold;
+}
