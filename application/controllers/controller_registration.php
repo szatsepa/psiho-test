@@ -17,10 +17,11 @@ class Controller_Registration extends Controller
         
     public function action_reg() {
         
-            $data = $this->model->setClient($_POST['nick'],$_POST['psw2'],$_POST['email'],$_POST['phone']);
+            $data = $this->model->setClient($_POST['nick'],$_POST['psw2'],$_POST['email'],$_POST['phone'],$_POST["secretcode"]);
             
             $this->view->generate('postreg_view.php', 'template_view.php',$data);
         }
+        
     public function action_activation($list) {
             
             $data = $this->model->activation($list);
@@ -28,6 +29,6 @@ class Controller_Registration extends Controller
             
             $this->view->generate('postactivation_view.php', 'template_view.php',$data);
             
-        }    
-        
+        } 
+           
 }

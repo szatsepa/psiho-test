@@ -1,23 +1,24 @@
 <?php
 
-var_dump($_SESSION);
-
+//var_dump($_SESSION);
+//echo "<br/>";
+//var_dump($data);
  
  ?>
 <script type="text/javascript">
-    var msg = '<?php echo $data['msg']; ?>';
-//    alert(msg);
-    if(confirm(msg)){
-        document.location = '/registration';
-    }else{
-//        alert('close');
-        window.close();
-    }
+//    var msg = '<?php echo $data['msg']; ?>';
+////    alert(msg);
+//    if(confirm(msg)){
+//        document.location = '/registration';
+//    }else{
+////        alert('close');
+//        window.close();
+//    }
     </script>
    
 <div>
 <?php
- if($data["CID"]){
+ if($data['CID']){
      ?>
     <h3>
         Регистрация прошла успешно!

@@ -8,13 +8,9 @@ class Model_Registration extends Model
             
 	}
         
-        public function setClient($login,$psw,$email,$phone) 
+        public function setClient($login,$psw,$email,$phone,$code) 
         {
-                $data = array('salt'=>$salt,'login'=>$login,'password'=>$psw,'email'=>$email,'phone'=>$phone, 'msg'=>NULL);
-                    
-                //session_register("secret_number");
-                
-                //session_register("CID");
+                $data = array('data'=>array($login,$psw,$email,$phone,$code,$_SESSION["secret_number"]),'CID'=>NULL,'query'=>  NULL);
 
                 if (intval($_SESSION["secret_number"])<1000) {
 
@@ -23,11 +19,11 @@ class Model_Registration extends Model
                 }
 
 
-                if ($_SERVER["REQUEST_METHOD"]=="POST") {
+                if ($_SERVER["REQUEST_METHOD"]==="POST") {
 
                         $error=0;
 
-                        if ($_POST["secretcode"]!=$_SESSION["secret_number"] || intval($_POST["secretcode"])==0){
+                        if (intval($code)!==$_SESSION["secret_number"] || intval($code)===0){
 
                                 $data['msg'] = 'Число з картинки введене невірно!';
 
@@ -41,7 +37,11 @@ class Model_Registration extends Model
                             $data['sha256'] = $log;
 
                             $query = "INSERT INTO `clients`(`login`, `password`, `salt`, `email`, `phone`) VALUES ('{$log}','{$password}','{$salt}','{$email}','{$phone}')";
-                           if(mysql_query($query)){
+                          
+                            $data['query'] = $query;
+                            
+                            if(mysql_query($query)){
+                                
                                $this->_mail($email, $login, $password);
                                
                                $cid = mysql_insert_id();
@@ -111,7 +111,7 @@ class Model_Registration extends Model
             mysql_query($query);
             
             if(mysql_affected_rows()){
-                $query = "SELECT `id`FROM `clients` WHERE `password` = '{$code}'";
+                $query = "SELECT `id` FROM `clients` WHERE `password` = '{$code}'";
                 
                 $result = mysql_query($query);
                 
@@ -122,5 +122,5 @@ class Model_Registration extends Model
             
             return $id;
         }
-
+        
 }
