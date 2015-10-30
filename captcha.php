@@ -1,13 +1,17 @@
-<?
+<?php
 	// реєструємо змінну
-	//session_start();
-	session_register("secret_number");
+	session_start();
+	//session_register("secret_number");
 
 	define('WIDTH', 110); // ширина картинки
 	define('HEIGHT', 36); // висота картинки
 
+	$font_arr = array('AdverGothicCamC', 'Arial', 'CharlesworthBold', 'CyrillicOld');
+
+	$font = $font_arr[rand(0, 3)];
+
 	// ім'я шрифту за замовчуванням (при бажанні його можна змінити)
-	define('FONT_NAME', './fonts/CyrillicOld.ttf');
+	define('FONT_NAME', "./fonts/{$font}.ttf");
 
 	// шрифти, які є в папці fonts в додаток до шрифту за замовчуванням:
 	// AdverGothicCamC, Arial, CharlesworthBold, CyrillicOld
@@ -39,17 +43,17 @@
     // зміщуючи їх випадковим чином + змінюючи кут нахилу
 	function draw_flag_part($image, $fon_color, $font_color, $font_name, $font_size){
 
-        GLOBAL $coords, $angles;
+            GLOBAL $coords, $angles;
 
-		// заливаєм задній фон кольором (спочатку блакитним, а тоді жовтим)
-		imagefill($image, 0, 0, $fon_color);
+            // заливаєм задній фон кольором (спочатку блакитним, а тоді жовтим)
+            imagefill($image, 0, 0, $fon_color);
 
-		// виводимо кожну цифру окремо, трохи зміщуючи випадковим чином
+            // виводимо кожну цифру окремо, трохи зміщуючи випадковим чином
 
-		imagettftext($image, $font_size, $angles[0], $coords[0][0], $coords[0][1], $font_color, $font_name, substr($_SESSION["secret_number"],0,1));
-		imagettftext($image, $font_size, $angles[1], $coords[1][0], $coords[1][1], $font_color, $font_name, substr($_SESSION["secret_number"],1,1));
-		imagettftext($image, $font_size, $angles[2], $coords[2][0], $coords[2][1], $font_color, $font_name, substr($_SESSION["secret_number"],2,1));
-		imagettftext($image, $font_size, $angles[3], $coords[3][0], $coords[3][1], $font_color, $font_name, substr($_SESSION["secret_number"],3,1));
+            imagettftext($image, $font_size, $angles[0], $coords[0][0], $coords[0][1], $font_color, $font_name, substr($_SESSION["secret_number"],0,1));
+            imagettftext($image, $font_size, $angles[1], $coords[1][0], $coords[1][1], $font_color, $font_name, substr($_SESSION["secret_number"],1,1));
+            imagettftext($image, $font_size, $angles[2], $coords[2][0], $coords[2][1], $font_color, $font_name, substr($_SESSION["secret_number"],2,1));
+            imagettftext($image, $font_size, $angles[3], $coords[3][0], $coords[3][1], $font_color, $font_name, substr($_SESSION["secret_number"],3,1));
 
 	}
 
@@ -68,14 +72,16 @@
     // копіюємо верхню частину з малюнка $flag_p1 на малюнок $flag_p2
 	imagecopy($flag_p2, $flag_p1, 0, 0, 0, 0, WIDTH, HEIGHT/2);
 
-    header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-    // HTTP/1.1
-    header("Cache-Control: no-store, no-cache, must-revalidate");
-    header("Cache-Control: post-check=0, pre-check=0", false);
-    // HTTP/1.0
-    header("Pragma: no-cache");
+        header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+        // HTTP/1.1
+        header("Cache-Control: no-store, no-cache, must-revalidate");
+        header("Cache-Control: post-check=0, pre-check=0", false);
+        // HTTP/1.0
+//        header("Pragma: no-cache");
 
 	header('Content-type: image/png');
+        
+//        header('Content-Disposition: attachment; filename=NULL');
 
 	// генеруємо зображення
 	imagepng($flag_p2);
@@ -84,4 +90,4 @@
 	imagedestroy($flag_p1);
 	imagedestroy($flag_p2);
 
-?>
+

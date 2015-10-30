@@ -1,21 +1,44 @@
 <?php
-	
+if (isset($_SESSION["secret_number"]) and intval($_SESSION["secret_number"])<1000) {
+		// srand(doubleval(microtime()));
+		// $_SESSION["secret_number"]=rand(1000,9999);
 
-        var_dump($data["CID"]);
+		mt_srand(time()+(double)microtime()*1000000);
+		$_SESSION["secret_number"] = mt_rand(1000,9999);
+	}
+
+	$msg = '';
+
+	if ($_SERVER["REQUEST_METHOD"]=="POST") {
+
+//		$error=0;
+//
+//		if ($_POST["secretcode"]!=$_SESSION["secret_number"] || intval($_POST["secretcode"])==0){
+//
+//			$msg = '<p style="color:red"><b>Число з картинки введене невірно!</b></p>';
+//
+//		} else {
+//
+//			// виконуємо необхідні дії з даними
+//			// ...
+//
+//			$msg = '<p><b>Привіт, '.htmlspecialchars(StripSlashes($_POST["nick"])).'! ;)</b></p>';
+//
+//		}
+
+		// оновлюємо "таємне" число
+		mt_srand(time()+(double)microtime()*1000000);
+		$_SESSION["secret_number"] = mt_rand(1000,9999);
+
+	}
+        var_dump($_SESSION);
 ?>
 <h1>Welcome!</h1>
- <audio autoplay>
-    <!--<source src="media/woods2.wav" type="audio/ogg; codecs=vorbis">-->
-  </audio>
-<!--<p align="center">
-<img src="images/PI.jpg" width="640" alt="Добро пожаловать!">
-</p>-->
 <div align=center>
  <?php
  if(!isset($_SESSION['CID'])){
  
  ?>
- <?=$msg;?>
  <form action="/registration/reg/" method="post">
      <table border="0">
          <tbody>
@@ -24,7 +47,9 @@
                    Введите логин:   
                  </td>
                  <td>
-                   <input type="text" name="nick" placeholder="login" required value=""  autofocus/>  
+                   <input type="text" id="nick" name="nick" placeholder="login" required value=""  autofocus/>
+                   <br/>
+                   <p id="msg" style="color: red;font-size: 0.6em"></p>
                  </td>
              </tr>
              <tr>

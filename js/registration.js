@@ -69,7 +69,30 @@ $(document).ready(function(){
         
         if(count !== sstr){
            alert('Пароли не совпадают!');
+           $(this).css({'border' : '1px solid #ff0000'});
        }
+    });
+    
+    $("input#nick").blur(function(){
+        var nick = $(this).val();
+        $.ajax({
+                asinc:false,
+                url:'/ajax/checkL',
+                type:'post',
+                responce:'text',
+                data:{'nick':nick},
+                success:function(response){ 
+                    var out = parseInt(response);
+//                    alert(out);
+                    if(out === 1){
+                        $("input#nick").val('').focus();
+                        $("p#msg").text('Такой логин уже зарегистрирован! Измените');
+//                        alert();
+                    }else{
+                        $("p#msg").text('');
+                    }
+                } 
+            });
     });
 });
 

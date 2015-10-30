@@ -7,7 +7,7 @@ class Client{
     var $registration = NULL;
     
     function __construct() {
-        session_register("client");
+        //session_register("client");
         setlocale(LC_ALL, 'ru_RU.utf8');        
         mysql_connect(LINKDB,PASSW, "") or die ("Ошибка");
         mysql_select_db(DB);
