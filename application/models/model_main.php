@@ -5,7 +5,7 @@ class Model_Main extends Model
 	
 	public function get_data()
 	{
-            $data = array();
+//            $data = array();
             
 
 
@@ -45,6 +45,6 @@ class Model_Main extends Model
 //
 //                }
             
-            return $data;
+//            return $data;
 	}
 }
