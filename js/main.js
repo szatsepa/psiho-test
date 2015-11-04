@@ -10,10 +10,14 @@ function reload_image(){
 
   	obj.src = 'captcha.php?imgid=' + curimgid;
 }
+
+function go(){
+    document.location = '/welcome';
+}
 $(document).ready(function(){
-//    if(cid){
-////        document.location = '/cabinet' ;
-//    }
+    if(cid > 0){
+        setTimeout(go,3000);
+    }
     $("#login").css({'font-size':'0.8em'});
     $("input#reg").mousedown(function(){
        document.location = '/registration' ;
