@@ -1,6 +1,6 @@
 <?php
 
-class Model_Main extends Model
+class Model_Welcome extends Model
 {
 	
 	public function get_data()
