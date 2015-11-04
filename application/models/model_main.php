@@ -91,7 +91,7 @@ class Model_Main extends Model
                     
                     if($cid){
                         $_SESSION['CID'] = $cid[0];
-                    
+                        
                         $msg = '<p style="color:green"><b>Вы успешно авторизовались</b></p>';
                     }
 

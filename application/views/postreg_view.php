@@ -6,14 +6,7 @@
  
  ?>
 <script type="text/javascript">
-//    var msg = '<?php echo $data['msg']; ?>';
-////    alert(msg);
-//    if(confirm(msg)){
-//        document.location = '/registration';
-//    }else{
-////        alert('close');
-//        window.close();
-//    }
+var cid = <?php echo "{$_SESSION['CID']}";?>
     </script>
    
 <div>

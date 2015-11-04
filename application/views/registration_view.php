@@ -11,20 +11,20 @@ if (isset($_SESSION["secret_number"]) and intval($_SESSION["secret_number"])<100
 
 	if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
-//		$error=0;
-//
-//		if ($_POST["secretcode"]!=$_SESSION["secret_number"] || intval($_POST["secretcode"])==0){
-//
-//			$msg = '<p style="color:red"><b>Число з картинки введене невірно!</b></p>';
-//
-//		} else {
-//
-//			// виконуємо необхідні дії з даними
-//			// ...
-//
-//			$msg = '<p><b>Привіт, '.htmlspecialchars(StripSlashes($_POST["nick"])).'! ;)</b></p>';
-//
-//		}
+		$error=0;
+
+		if ($_POST["secretcode"]!=$_SESSION["secret_number"] || intval($_POST["secretcode"])==0){
+
+			$msg = '<p style="color:red"><b>Число з картинки введене невірно!</b></p>';
+
+		} else {
+
+			// виконуємо необхідні дії з даними
+			// ...
+
+			$msg = '<p><b>Привіт, '.htmlspecialchars(StripSlashes($_POST["nick"])).'! ;)</b></p>';
+
+		}
 
 		// оновлюємо "таємне" число
 		mt_srand(time()+(double)microtime()*1000000);
@@ -44,10 +44,26 @@ if (isset($_SESSION["secret_number"]) and intval($_SESSION["secret_number"])<100
          <tbody>
              <tr>
                  <td>
+                   Ваше имя:   
+                 </td>
+                 <td>
+                   <input type="text" id="firstname" name="firstname" placeholder="Ваше имя" required value=""  autofocus/>
+                 </td>
+             </tr>
+             <tr>
+                 <td>
+                   Ваша фамилия:   
+                 </td>
+                 <td>
+                   <input type="text" id="surname" name="surname" placeholder="Ваша фамилия" required value="" />
+                 </td>
+             </tr>
+             <tr>
+                 <td>
                    Введите логин:   
                  </td>
                  <td>
-                   <input type="text" id="nick" name="nick" placeholder="login" required value=""  autofocus/>
+                   <input type="text" id="nick" name="nick" placeholder="login" required value="" />
                    <br/>
                    <p id="msg" style="color: red;font-size: 0.6em"></p>
                  </td>

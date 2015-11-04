@@ -15,7 +15,7 @@ function go(){
     document.location = '/welcome';
 }
 $(document).ready(function(){
-    if(cid){
+    if(cid > 0){
         setTimeout(go,3000);
     }
     $("#login").css({'font-size':'0.8em'});

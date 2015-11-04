@@ -8,7 +8,7 @@ class Model_Registration extends Model
             
 	}
         
-        public function setClient($login,$psw,$email,$phone,$code) 
+        public function setClient($login,$psw,$email,$phone,$code,$firstname,$surname) 
         {
                 $data = array('data'=>array($login,$psw,$email,$phone,$code,$_SESSION["secret_number"]),'CID'=>NULL,'query'=>  NULL);
 
@@ -36,7 +36,7 @@ class Model_Registration extends Model
 
                             $data['sha256'] = $log;
 
-                            $query = "INSERT INTO `clients`(`login`, `password`, `salt`, `email`, `phone`) VALUES ('{$log}','{$password}','{$salt}','{$email}','{$phone}')";
+                            $query = "INSERT INTO `clients`(`login`, `password`, `salt`, `firstname`, `surname`,  `email`, `phone`) VALUES ('{$log}','{$password}','{$salt}','{$firstname}','{$surname}','{$email}','{$phone}')";
                           
                             $data['query'] = $query;
                             

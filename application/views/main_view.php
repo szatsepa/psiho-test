@@ -29,7 +29,7 @@
  }else{
      ?>
     <script language="javascript" type="text/javascript">
-        var cid = <?php echo $_SESSION['CID'];?>;
+        var cid = parseInt(<?php echo $_SESSION['CID'];?>);
     </script>   
     <?php
  }
