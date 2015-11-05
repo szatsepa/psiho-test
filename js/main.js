@@ -16,7 +16,7 @@ function go(){
 }
 $(document).ready(function(){
     if(cid > 0){
-        setTimeout(go,3000);
+        setTimeout(go,500);
     }
     $("#login").css({'font-size':'0.8em'});
     $("input#reg").mousedown(function(){

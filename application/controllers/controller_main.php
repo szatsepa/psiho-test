@@ -16,10 +16,7 @@ class Controller_Main extends Controller
         public function action_login() {
                 $data = $this->model->login($_POST['nick'],$_POST['psw']);
                 
-                    $this->view->generate('main_view.php', 'template_view.php',$data);
-//                if($data['msg'] !== ''){}else{
-//                    
-//                }
+                $this->view->generate('main_view.php', 'template_view.php',$data);
 		
         }
 }

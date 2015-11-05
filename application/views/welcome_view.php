@@ -1,9 +1,11 @@
 <?php
         var_dump($data);
         echo "<br/>";
-        var_dump($_SESSION);
+//        var_dump($_SESSION);
         echo "<br/>";
         var_dump($_COOKIE);
+//        echo "<br/>";
+//        var_dump($_SERVER);
 //        $firstname = $data[0]['firstname'];
 ?>
 <h1>Welcome!&nbsp;<?php echo "{$data[0]['firstname']}&nbsp;{$data[0]['surname']}"; ?></h1>

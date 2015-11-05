@@ -1,6 +1,8 @@
 <?php
         var_dump($_SESSION);
-        $msg = $data['msg'];
+        echo "<br/>";
+        var_dump($_COOKIE);
+        @$msg = $data['msg'];
 ?>
 <script language="javascript" type="text/javascript">
        var cid = 0;
@@ -28,6 +30,7 @@
 
         <p><input type="submit" value="Авторизоватся">&nbsp;&nbsp;&nbsp;<input type="button" id="reg" value="Зарегистрироватся"></p>
  </form>
+    <a id="minde">Забыли пароль?</a>
     <?php
  }else{
      ?>

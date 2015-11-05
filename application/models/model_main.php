@@ -7,9 +7,14 @@ class Model_Main extends Model
 	{
             $data = array();
             
-            $msg = $this->captcha();
+            if(!isset($_COOKIE['CID'])){
+                
+                $msg = $this->captcha();
             
-            $data['msg'] = $msg;
+                $data['msg'] = $msg;
+            }
+            
+            
             
             return $data;
 	}
