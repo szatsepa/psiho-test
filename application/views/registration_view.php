@@ -102,6 +102,11 @@ if (isset($_SESSION["secret_number"]) and intval($_SESSION["secret_number"])<100
              </tr>
              <tr>
                  <td colspan="2">
+                     <p>Введите код, который видите на картинке: <input type="text" name="secretcode" value="" maxlength=4 style="width:45px; text-align:center"></p>
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="2">
                      <table width="325" border="0" cellspacing="0" cellpadding="5">
                           <tr>
                                 <td><img id="im_captcha" src='captcha.php?imgid=<?=doubleval(microtime());?>' width="110" height="36" vspace="5"></td>
@@ -111,11 +116,7 @@ if (isset($_SESSION["secret_number"]) and intval($_SESSION["secret_number"])<100
                     </table>
                  </td>
              </tr>
-             <tr>
-                 <td colspan="2">
-                     <p>Введите код, который видите на картинке: <input type="text" name="secretcode" value="" maxlength=4 style="width:45px; text-align:center"></p>
-                 </td>
-             </tr>
+             
              <tr>
                  
                  <td colspan="2">

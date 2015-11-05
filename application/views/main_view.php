@@ -2,6 +2,9 @@
         var_dump($_SESSION);
         $msg = $data['msg'];
 ?>
+<script language="javascript" type="text/javascript">
+       var cid = 0;
+    </script> 
 <h1>Welcome!</h1>
 <div align=center>
     <?=$msg;?>
@@ -29,11 +32,11 @@
  }else{
      ?>
     <script language="javascript" type="text/javascript">
-        var cid = parseInt(<?php echo $_SESSION['CID'];?>);
+        cid = parseInt(<?php echo $_SESSION['CID'];?>);
     </script>   
     <?php
  }
  ?>
-    
+   
 </div>
 <script language="javascript" type="text/javascript" src="/js/main.js"></script>

@@ -1,7 +1,7 @@
 <?php 
-//if(isset($_SESSION['CID'])){
-//    setcookie('CID', $cid,  time()+86400);
-//}
+if(isset($_SESSION['CID'])){
+    setcookie('CID', $_SESSION['CID'],  time()+86400);
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
