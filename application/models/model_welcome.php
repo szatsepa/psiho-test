@@ -13,7 +13,21 @@ class Model_Welcome extends Model
             return $data;
 	}
         
-        public function forget($param) {
+        public function forget($email,$phone) {
+            
+            $em = $email;
+            
+            $ph = $phone;
+            
+            $data = array();
+            
+            $data = self::querySelect("SELECT `id`, `firstname`, `surname`, `created` FROM `clients` WHERE `email` = '{$em}' AND `phone` = '{$ph}'");
+            
+            if($data){
+                $_SESSION['CID'] = $data[0]['id'];
+            }
+            
+            return $data;
             
         }
         

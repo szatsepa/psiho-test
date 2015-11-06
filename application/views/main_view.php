@@ -41,10 +41,10 @@
     <div id="minde" style="display: none">
         <form action="/welcome/forget" method="post">
             <p>
-                <input id="em" type="text" placeholder="EMail" value="" required=""/>
+                <input id="em" type="text" name="em" placeholder="EMail" value="" required=""/>
             </p>
             <p>
-                <input id="phone" type="text" placeholder="Номер телефона" value="" required=""/>
+                <input id="phone" type="text" name="phone" placeholder="Номер телефона" value="" required=""/>
             </p>
             <p>
                 <input id="send" type="submit" value="Отправить"/>

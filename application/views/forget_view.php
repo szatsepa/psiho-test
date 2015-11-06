@@ -1,5 +1,9 @@
 <?php
-
+var_dump($data);
+echo "<br/>";
+var_dump($_SESSION);
+echo "<br/>";
+var_dump($_COOKIE);
 ?>
 <h1>Welcome!&nbsp;<?php echo "{$data[0]['firstname']}&nbsp;{$data[0]['surname']}"; ?></h1>
 <div align=center>

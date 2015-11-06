@@ -25,5 +25,12 @@ class Controller_Welcome extends Controller
         
         function action_forget() {
             
+                $em = stripcslashes($_POST['em']);
+                
+                $ph = stripslashes($_POST['phone']);
+            
+                $data = $this->model->forget($em,$ph);
+                
+		$this->view->generate('forget_view.php', 'template_view.php',$data);
         }
 }
