@@ -19,9 +19,9 @@ class Model_Welcome extends Model
             
             $ph = $phone;
             
-            $data = array();
+//            $data = array();
             
-            $data = self::querySelect("SELECT `id`, `firstname`, `surname`, `created` FROM `clients` WHERE `email` = '{$em}' AND `phone` = '{$ph}'");
+            $data = self::querySelect("SELECT `id`, `firstname`, `surname`, `email`,`phone`,`created` FROM `clients` WHERE `email` = '{$em}' AND `phone` = '{$ph}' AND `enabled` = 1");
             
             if($data){
                 $_SESSION['CID'] = $data[0]['id'];
