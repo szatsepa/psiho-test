@@ -10,8 +10,20 @@ class Controller_Welcome extends Controller
         
 	function action_index()
 	{	
-                $data = $this->model->get_data();
+                $cid = NULL;
+                if(@$_COOKIE['CID']){
+                    $cid = @$_COOKIE['CID'];
+                }else if(isset ($_SESSION['CID'])){
+                    $cid = @$_SESSION['CID'];
+                }
+                
+                $data = $this->model->get_data($cid);
+                
 		$this->view->generate('welcome_view.php', 'template_view.php',$data);
 	
+        }
+        
+        function action_forget() {
+            
         }
 }

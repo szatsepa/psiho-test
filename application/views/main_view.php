@@ -1,20 +1,26 @@
 <?php
-        var_dump($_SESSION);
-        echo "<br/>";
-        var_dump($_COOKIE);
-        @$msg = $data['msg'];
+//        var_dump($_COOKIE);
+//        echo "<br/>";
+//        var_dump($data);
+//        @$msg = $data['msg'];
+        $cid = NULL;
+        if(@$_COOKIE['CID']){
+            $cid = @$_COOKIE['CID'];
+        }else if(isset ($_SESSION['CID'])){
+            $cid = @$_SESSION['CID'];
+        }
 ?>
 <script language="javascript" type="text/javascript">
        var cid = 0;
     </script> 
 <h1>Welcome!</h1>
 <div align=center>
-    <?=$msg;?>
+    <?=@$msg;?>
  <?php
- if(!isset($_SESSION['CID']) || !$_SESSION['CID']){
+ if(!$cid){
  
  ?>
-    
+    <div id="log">
  <form action="/main/login" method="post">
      <p>Введіть логин: <input type="text" name="nick" placeholder="login" required value="" style="text-align:center" autofocus/></p>
         <p>Введіть пароль: <input type="password" name="psw" value="" required style="text-align:center"/></p>
@@ -30,12 +36,28 @@
 
         <p><input type="submit" value="Авторизоватся">&nbsp;&nbsp;&nbsp;<input type="button" id="reg" value="Зарегистрироватся"></p>
  </form>
-    <a id="minde">Забыли пароль?</a>
+        <a id="forget">Забыли пароль?</a>
+        </div>    
+    <div id="minde" style="display: none">
+        <form action="/welcome/forget" method="post">
+            <p>
+                <input id="em" type="text" placeholder="EMail" value="" required=""/>
+            </p>
+            <p>
+                <input id="phone" type="text" placeholder="Номер телефона" value="" required=""/>
+            </p>
+            <p>
+                <input id="send" type="submit" value="Отправить"/>
+            </p>
+        </form>
+    </div>
     <?php
+//    forget
+    
  }else{
      ?>
     <script language="javascript" type="text/javascript">
-        cid = parseInt(<?php echo $_SESSION['CID'];?>);
+        cid = parseInt(<?php echo $cid;?>);
     </script>   
     <?php
  }

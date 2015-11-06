@@ -1,9 +1,9 @@
 <?php
-        var_dump($data);
-        echo "<br/>";
-//        var_dump($_SESSION);
-        echo "<br/>";
-        var_dump($_COOKIE);
+//        var_dump($data);
+//        echo "<br/>";
+////        var_dump($_SESSION);
+//        echo "<br/>";
+//        var_dump($_COOKIE);
 //        echo "<br/>";
 //        var_dump($_SERVER);
 //        $firstname = $data[0]['firstname'];

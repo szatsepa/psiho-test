@@ -12,6 +12,8 @@ class Model_Main extends Model
                 $msg = $this->captcha();
             
                 $data['msg'] = $msg;
+            }else{
+                $data = $this->autolog($_COOKIE['CID']);
             }
             
             
@@ -72,6 +74,14 @@ class Model_Main extends Model
                 }
                 
                 return $msg;
+        }
+        private function autolog($cid) {
+            
+            $query = "SELECT `id` FROM `clients` WHERE `id`={$cid}";
+            
+            $data = self::querySelect($query);
+            
+            return $data;
         }
         
         private function getID($login,$password) {
