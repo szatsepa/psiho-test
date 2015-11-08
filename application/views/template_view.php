@@ -10,7 +10,7 @@ if(isset($_SESSION['CID'])){
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<title>PSIHO_TEST</title>
+		<title>ψυχο τεστ</title>
                 <link rel="shortcut icon" href="/design/favicon.ico" type="image/ico"/>
 		<link rel="stylesheet" type="text/css" href="/css/style.css" />
                 <link rel="stylesheet" type="text/css" href="/css/mystyle.css" />
@@ -34,7 +34,7 @@ if(isset($_SESSION['CID'])){
 		
 <div id="d_wrapper">
     <div id="head">
-        <h3 id="ttl">"PSIHO_TEST"&nbsp;</h3>
+        <h3 id="ttl">ψυχολογικό τεστ</h3>
 
     </div>
     <?php
