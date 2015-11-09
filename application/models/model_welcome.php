@@ -7,7 +7,7 @@ class Model_Welcome extends Model
 	{
             $data = array();
             
-            $data = self::querySelect("SELECT `firstname`, `surname`, `email`, `phone`, `created` FROM `clients` WHERE `id`={$cid}");
+            $data = self::querySelect("SELECT `firstname`, `surname`, `email`, `phone`, `created` FROM `users` WHERE `id`={$cid}");
             
             
             return $data;
@@ -21,7 +21,7 @@ class Model_Welcome extends Model
             
 //            $data = array();
             
-            $data = self::querySelect("SELECT `id`, `firstname`, `surname`, `email`,`phone`,`created` FROM `clients` WHERE `email` = '{$em}' AND `phone` = '{$ph}' AND `enabled` = 1");
+            $data = self::querySelect("SELECT `id`, `firstname`, `surname`, `email`,`phone`,`created` FROM `users` WHERE `email` = '{$em}' AND `phone` = '{$ph}' AND `enabled` = 1");
             
             if($data){
                 $_SESSION['CID'] = $data[0]['id'];
@@ -41,7 +41,7 @@ class Model_Welcome extends Model
             
             $psw = hash('sha256',stripslashes($password).$salt);
             
-            $data = self::actUpdate("UPDATE `clients` SET `login`='{$nick}',`password`='{$psw}',`salt`='{$salt}' WHERE `id` = {$id}");
+            $data = self::actUpdate("UPDATE `users` SET `login`='{$nick}',`password`='{$psw}',`salt`='{$salt}' WHERE `id` = {$id}");
             
             return  $data;
         }

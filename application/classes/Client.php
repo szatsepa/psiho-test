@@ -18,7 +18,7 @@ class Client{
     
     function getData($login,$psw){
         
-        $query = "SELECT `id`, `email`, `phone`, `created` FROM `clients` WHERE `login` = '{$login}' AND `password` = '{$psw}'";
+        $query = "SELECT `id`, `email`, `phone`, `created` FROM `users` WHERE `login` = '{$login}' AND `password` = '{$psw}'";
         
         $result = mysql_query($query);
         

@@ -36,7 +36,7 @@ class Model_Registration extends Model
 
                             $data['sha256'] = $log;
 
-                            $query = "INSERT INTO `clients`(`login`, `password`, `salt`, `firstname`, `surname`,  `email`, `phone`) VALUES ('{$log}','{$password}','{$salt}','{$firstname}','{$surname}','{$email}','{$phone}')";
+                            $query = "INSERT INTO `users`(`login`, `password`, `salt`, `firstname`, `surname`,  `email`, `phone`) VALUES ('{$log}','{$password}','{$salt}','{$firstname}','{$surname}','{$email}','{$phone}')";
                           
                             $data['query'] = $query;
                             
@@ -106,12 +106,12 @@ class Model_Registration extends Model
             
             //session_register("CID");
             
-            $query = "UPDATE `clients` SET `enabled`=1 WHERE `password` = '{$code}'";
+            $query = "UPDATE `users` SET `enabled`=1 WHERE `password` = '{$code}'";
             
             mysql_query($query);
             
             if(mysql_affected_rows()){
-                $query = "SELECT `id` FROM `clients` WHERE `password` = '{$code}'";
+                $query = "SELECT `id` FROM `users` WHERE `password` = '{$code}'";
                 
                 $result = mysql_query($query);
                 

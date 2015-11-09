@@ -78,7 +78,7 @@ class Model_Main extends Model
         }
         private function autolog($cid) {
             
-            $query = "SELECT `id` FROM `clients` WHERE `id`={$cid}";
+            $query = "SELECT `id` FROM `users` WHERE `id`={$cid}";
             
             $data = self::querySelect($query);
             
@@ -91,14 +91,14 @@ class Model_Main extends Model
             
             $log = hash('sha256',$login);
             
-            $result = mysql_query("SELECT `salt` FROM `clients` WHERE `login` = '{$log}' AND `enabled` = 1");
+            $result = mysql_query("SELECT `salt` FROM `users` WHERE `login` = '{$log}' AND `enabled` = 1");
             
             if($result){
                 $salt = mysql_fetch_array($result);
             
                 $psw = hash('sha256',$password.$salt[0]);
 
-                $query = "SELECT `id` FROM `clients` WHERE `login`='{$log}' AND `password`='{$psw}'";
+                $query = "SELECT `id` FROM `users` WHERE `login`='{$log}' AND `password`='{$psw}'";
 
                 $result_1 = mysql_query($query);
 
@@ -117,7 +117,7 @@ class Model_Main extends Model
                 
             }
             
-//            $msg .= "SELECT `salt` FROM `clients` WHERE `login` = '{$log}' AND `enabled` = 1////".$query;
+//            $msg .= "SELECT `salt` FROM `users` WHERE `login` = '{$log}' AND `enabled` = 1////".$query;
             
             return $msg;
         }

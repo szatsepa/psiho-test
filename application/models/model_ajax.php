@@ -11,7 +11,7 @@ class Model_Ajax extends Model
             
             $log = hash('sha256',$_POST['nick']);
             
-            $query = "SELECT `id` FROM `clients` WHERE `login` = '{$log}'"; 
+            $query = "SELECT `id` FROM `users` WHERE `login` = '{$log}'"; 
             
             $result = mysql_query($query);
             
