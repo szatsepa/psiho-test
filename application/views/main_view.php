@@ -1,8 +1,8 @@
 <?php
-//        var_dump($_COOKIE);
-//        echo "<br/>";
-//        var_dump($data);
-//        @$msg = $data['msg'];
+        var_dump($_COOKIE);
+        echo "<br/>";
+        var_dump($data);
+        @$msg = $data['msg'];
         $cid = NULL;
         if(@$_COOKIE['CID']){
             $cid = @$_COOKIE['CID'];

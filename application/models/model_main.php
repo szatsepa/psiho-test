@@ -21,6 +21,7 @@ class Model_Main extends Model
             return $data;
 	}
         public function login($login,$password) {
+            
             $data = array();
             
             $msg = $this->captcha();
@@ -29,7 +30,7 @@ class Model_Main extends Model
             
             if($msg === ''){
                 
-               $data['msg'] = $this->getID($login, $password);
+               $data['msg'] = $this->getID(stripslashes($login), stripslashes($password));
                 
             }
             
@@ -115,6 +116,8 @@ class Model_Main extends Model
             
                 
             }
+            
+//            $msg .= "SELECT `salt` FROM `clients` WHERE `login` = '{$log}' AND `enabled` = 1////".$query;
             
             return $msg;
         }

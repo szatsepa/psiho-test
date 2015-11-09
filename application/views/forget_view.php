@@ -1,9 +1,9 @@
 <?php
-var_dump($data[0]);
+@var_dump($data[0]);
 echo "<br/>";
-var_dump($_SESSION);
+@var_dump($_SESSION);
 echo "<br/>";
-var_dump($_COOKIE);
+@var_dump($_COOKIE);
 ?>
 <h1>Welcome!&nbsp;<?php echo "{$data[0]['firstname']}&nbsp;{$data[0]['surname']}"; ?></h1>
 <div align=center>
@@ -31,7 +31,7 @@ var_dump($_COOKIE);
                    Введите логин:   
                  </td>
                  <td>
-                   <input type="text" id="nick" name="nick" placeholder="login" required value="" />
+                     <input type="text" id="nick" name="nick" placeholder="login" required value="" autofocus=""/>
                    <br/>
                    <p id="msg" style="color: red;font-size: 0.6em"></p>
                  </td>
