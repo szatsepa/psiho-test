@@ -1,20 +1,14 @@
 $(document).ready(function(){
     
-    $("table#tcab").css({'width':'80%'});
+    $("table#tcab").css({'width':'60%'});
     $("table#tcab tbody tr td").css({'border':'1px solid grey'});
-    $("table#tcab tbody tr").find("td:eq(1)").mousedown(function(){
-        var str = $(this).text();
-        $(this).text('');
-        $(this).append("<input type='text' class='change' value='"+str+"' autofocus/>");
-    }).css({'cursor':'pointer'});
-    $("table#tcab tbody tr").find("td:eq(3)").mousedown(function(){
-        var str = $(this).text();
-        $(this).text('');
-        $(this).append("<input class='change' value='"+str+"' autofocus/>");
-    }).css({'cursor':'pointer'});
-    $("input.change").live('change',function(){
-        alert("PYZDETS");
-        $("input#send").attr({'disabled':false});
+    $("table#tcab tbody tr").find("td:eq(2)").css({'text-align':'center'});
+    $("a.ico-edit").live('click',function(){
+        var obj = $(this).parent().parent();
+        var nm = $(this).parent().parent().find("td:eq(0)").attr('id');
+        var str = $(obj).find("td:eq(1)").text();
+        $(obj).find("td:eq(1)").empty().html("<input class='change' name='"+nm+"' type='text' value='"+str+"' autofocus/>");
+        
     });
 });
 

@@ -18,11 +18,11 @@
             unset($data[0]['foto']);
             $cell = array("firstname"=>'Имя',"surname"=>'Фамилия',"email"=>'Емейл',"phone"=>'Телефон',"created"=>'Зарегистрирован',"country"=>'Страна',"region"=>'Область',"city"=>'Город',"street"=>'Адрес',"born"=>'Дата рождения');
             foreach ($data[0] as $key => $value) {
-                if($row > 1)$row=0;
-                if($row === 0 ){
-                    echo "<tr><td>{$cell[$key]}</td><td>{$value}</td>";
+//                if($row > 1)$row=0;
+                if($row < 5 ){
+                    echo "<tr><td id='{$key}'>{$cell[$key]}</td><td>{$value}</td><td></td></tr>";
                 }else{
-                    echo "<td>{$cell[$key]}</td><td>{$value}</td></tr>";
+                    echo "<td id='{$key}'>{$cell[$key]}</td><td>{$value}</td><td><a class='ico-edit'></a></td></tr>";
                 }
                 $row++;
             }
