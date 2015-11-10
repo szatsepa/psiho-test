@@ -1,8 +1,8 @@
 <?php
 
-//var_dump($_SESSION);
-//echo "<br/>";
-//var_dump($data);
+var_dump($_SESSION);
+echo "<br/>";
+var_dump($data);
  
  ?>
 <script type="text/javascript">

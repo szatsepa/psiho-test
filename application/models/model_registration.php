@@ -10,7 +10,7 @@ class Model_Registration extends Model
         
         public function setClient($login,$psw,$email,$phone,$code,$firstname,$surname) 
         {
-                $data = array('data'=>array($login,$psw,$email,$phone,$code,$_SESSION["secret_number"]),'CID'=>NULL,'query'=>  NULL);
+                $data = array('data'=>array('login'=>$login,'psw'=>$psw,$email,$phone,'SC'=>$code,'sesSC'=>$_SESSION["secret_number"]),'CID'=>NULL,'query'=>  NULL);
 
                 if (intval($_SESSION["secret_number"])<1000) {
 

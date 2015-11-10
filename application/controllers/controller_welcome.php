@@ -31,6 +31,8 @@ class Controller_Welcome extends Controller
             
                 $data = $this->model->forget($em,$ph);
                 
+//                todo if data = null go to main
+                
 		$this->view->generate('forget_view.php', 'template_view.php',$data);
         }
         

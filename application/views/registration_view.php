@@ -1,36 +1,4 @@
 <?php
-if (isset($_SESSION["secret_number"]) and intval($_SESSION["secret_number"])<1000) {
-		// srand(doubleval(microtime()));
-		// $_SESSION["secret_number"]=rand(1000,9999);
-
-		mt_srand(time()+(double)microtime()*1000000);
-		$_SESSION["secret_number"] = mt_rand(1000,9999);
-	}
-
-	$msg = '';
-
-	if ($_SERVER["REQUEST_METHOD"]=="POST") {
-
-		$error=0;
-
-		if ($_POST["secretcode"]!=$_SESSION["secret_number"] || intval($_POST["secretcode"])==0){
-
-			$msg = '<p style="color:red"><b>Число з картинки введене невірно!</b></p>';
-
-		} else {
-
-			// виконуємо необхідні дії з даними
-			// ...
-
-			$msg = '<p><b>Привіт, '.htmlspecialchars(StripSlashes($_POST["nick"])).'! ;)</b></p>';
-
-		}
-
-		// оновлюємо "таємне" число
-		mt_srand(time()+(double)microtime()*1000000);
-		$_SESSION["secret_number"] = mt_rand(1000,9999);
-
-	}
         var_dump($_SESSION);
 ?>
 <h1>Welcome!</h1>

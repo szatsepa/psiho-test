@@ -23,30 +23,46 @@ class Route
 			$controller_name = $routes[1];
 		}
 		
-		// получаем имя экшена
-		if ( !empty($routes[2]) )
-		{
-			$action_name = $routes[2];
-		}
+                $check = NULL;
                 
-                if(!empty($routes[3])){
-                    $list = $routes[3];
-//                    echo "$list";
+                $array = array('Main','registration');
+                
+                foreach ($array as $value) {
+                    if($controller_name === $value){
+                        $check = 1;
+                    }
                 }
                 
-                if(!empty($routes[4])){
-                    $param = $routes[4];
-//                    echo "$list";
+                
+                if(!isset($_COOKIE['CID']) and !$check){
+                    header( 'Location: /', true, 307);
+                }else{
+//                   получаем имя экшена
+                    if ( !empty($routes[2]) )
+                    {
+                        $action_name = $routes[2];
+                    }
+
+                    if(!empty($routes[3])){
+                        $list = $routes[3];
+                    }
+
+                    if(!empty($routes[4])){
+                        $param = $routes[4];
+                    } 
                 }
+
+                
+                
 
 		// добавляем префиксы
 		$model_name = 'Model_'.$controller_name;
 		$controller_name = 'Controller_'.$controller_name;
 		$action_name = 'action_'.$action_name;
 
-		/*
-		echo "Model: $model_name <br>";
-		echo "Controller: $controller_name <br>";
+		
+		echo "Model: $model_name & $check";
+		/*echo "Controller: $controller_name <br>";
 		echo "Action: $action_name <br>";
 		*/
 

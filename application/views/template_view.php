@@ -1,5 +1,5 @@
 <?php 
-if(isset($_SESSION['CID'])){
+if(isset($_SESSION['CID']) and !isset($_COOKIE['CID'])){
     setcookie('CID', $_SESSION['CID'],  time()+86400);
 }
 ?>
