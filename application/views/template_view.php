@@ -47,7 +47,7 @@ if(isset($_SESSION['CID'])){
            
             <tbody>
                 <tr>
-                    <td><a class="menu_btn" id="staff"></a></td>
+                    <td><a class="menu_btn" id="/welcome/cab">Кабинет</a></td>
                     <td><a class="menu_btn" id="pay"></a></td>
                     <td><a class="menu_btn" id="produce"></a></td>
                     <td><a class="menu_btn" id="siona"></a></td>

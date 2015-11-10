@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $("#m_menu tbody tr td a").mousedown(function(){
             var str = this.id;
-//            alert(str);
+            
             
             if(str === 'exit'){
                 if(confirm("Действительно выйти?")){
@@ -10,8 +10,8 @@ $(document).ready(function(){
             }
             else
             {
-                
-                document.location = "";
+//                alert(str);
+                document.location.href = "http://"+document.location.hostname+str;
             }
             
             

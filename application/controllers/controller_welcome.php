@@ -45,4 +45,10 @@ class Controller_Welcome extends Controller
                 }
             
         }
+        function action_cab() {
+            
+                $data = $this->model->cab();
+                
+		$this->view->generate('cab_view.php', 'template_view.php',$data);
+        }
 }
