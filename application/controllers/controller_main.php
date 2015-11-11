@@ -21,7 +21,7 @@ class Controller_Main extends Controller
                 $this->view->generate('main_view.php', 'template_view.php',$data);
 		
         }
-        function action_forget() {
+        public function action_forget() {
             
                 $em = stripcslashes($_POST['em']);
                 

@@ -123,17 +123,29 @@ class Model_Main extends Model
         }
         public function forget($email,$phone) {
             
+            
+            
             $em = $email;
             
             $ph = $phone;
             
-//            $data = array();
+            $data = array('em'=>$em,'phone'=>$ph);
             
-            $data = self::querySelect("SELECT `id`, `firstname`, `surname`, `email`,`phone`,`created` FROM `users` WHERE `email` = '{$em}' AND `phone` = '{$ph}' AND `enabled` = 1");
+            $query = "SELECT `id`, `firstname`, `surname`, `email`,`phone`,`created` FROM `users` WHERE `email` = '{$em}' AND `phone` = '{$ph}' AND `enabled` = 1";
             
-            if($data){
-                $_SESSION['CID'] = $data[0]['id'];
-            }
+            $result = mysql_query($query);
+            
+//            mysql_fetch_array($result,);
+            
+            while ($row = mysql_fetch_assoc($result)) {
+                    $data['client'] =  $row;
+                }
+            
+            $data['query'] = $query;
+            
+//            if($data){
+//                $_SESSION['CID'] = $data[0]['id'];
+//            }
             
             return $data;
             

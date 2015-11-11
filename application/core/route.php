@@ -16,7 +16,7 @@ class Route
                 $list = NULL;
 		$param = NULL;
 		$routes = explode('/', $_SERVER['REQUEST_URI']);
-
+                
 		// получаем имя контроллера
 		if ( !empty($routes[1]) )
 		{	
@@ -32,11 +32,12 @@ class Route
                         $check = 1;
                     }
                 }
-                
-                
-                if(!isset($_COOKIE['CID']) and !$check){
-                    header( 'Location: /', true, 307);
-                }else{
+//                
+//                
+//                if(!isset($_COOKIE['CID']) and !$check){
+//                    header( 'Location: /', true, 307);
+//                }
+//                sselseif($check){}
 //                   получаем имя экшена
                     if ( !empty($routes[2]) )
                     {
@@ -50,7 +51,7 @@ class Route
                     if(!empty($routes[4])){
                         $param = $routes[4];
                     } 
-                }
+                
 
                 
                 
@@ -61,10 +62,10 @@ class Route
 		$action_name = 'action_'.$action_name;
 
 		
-		echo "Model: $model_name & $check";
-		/*echo "Controller: $controller_name <br>";
+		echo "Model: $model_name,";
+		echo "Controller: $controller_name ,";
 		echo "Action: $action_name <br>";
-		*/
+		var_dump($routes);
 
 		// подцепляем файл с классом модели (файла модели может и не быть)
 
@@ -90,7 +91,6 @@ class Route
 			но для упрощения сразу сделаем редирект на страницу 404
 			*/
 			Route::ErrorPage404();
-//            echo "PYZDETS"." - application/controllers/".$controller_file;
 		}
 		
 		// создаем контроллер
