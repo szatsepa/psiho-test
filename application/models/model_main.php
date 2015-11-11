@@ -121,4 +121,21 @@ class Model_Main extends Model
             
             return $msg;
         }
+        public function forget($email,$phone) {
+            
+            $em = $email;
+            
+            $ph = $phone;
+            
+//            $data = array();
+            
+            $data = self::querySelect("SELECT `id`, `firstname`, `surname`, `email`,`phone`,`created` FROM `users` WHERE `email` = '{$em}' AND `phone` = '{$ph}' AND `enabled` = 1");
+            
+            if($data){
+                $_SESSION['CID'] = $data[0]['id'];
+            }
+            
+            return $data;
+            
+        }
 }

@@ -21,4 +21,16 @@ class Controller_Main extends Controller
                 $this->view->generate('main_view.php', 'template_view.php',$data);
 		
         }
+        function action_forget() {
+            
+                $em = stripcslashes($_POST['em']);
+                
+                $ph = stripslashes($_POST['phone']);
+            
+                $data = $this->model->forget($em,$ph);
+                
+//                todo if data = null go to main
+                
+		$this->view->generate('forget_view.php', 'template_view.php',$data);
+        }
 }

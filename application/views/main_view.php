@@ -39,7 +39,7 @@
         <a id="forget">Забыли пароль?</a>
         </div>    
     <div id="minde" style="display: none">
-        <form action="/welcome/forget" method="post">
+        <form action="/main/forget" method="post">
             <p>
                 <input id="em" type="text" name="em" placeholder="EMail" value="" required=""/>
             </p>
