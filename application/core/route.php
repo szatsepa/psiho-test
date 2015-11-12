@@ -34,9 +34,9 @@ class Route
                 }
 //                
 //                
-//                if(!isset($_COOKIE['CID']) and !$check){
-//                    header( 'Location: /', true, 307);
-//                }
+                if(!isset($_COOKIE['CID']) and !$check){
+                    header( 'Location: /', true, 307);
+                }
 //                sselseif($check){}
 //                   получаем имя экшена
                     if ( !empty($routes[2]) )
