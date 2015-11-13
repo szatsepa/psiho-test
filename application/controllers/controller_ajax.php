@@ -18,5 +18,12 @@ class Controller_Ajax extends Controller
             echo "{$data}";
             
         } 
+        public function action_cab() {
+            
+            $data = $this->model->cab_change();
+            
+            echo "{$data}";
+            
+        }
 
 }

@@ -22,4 +22,25 @@ class Model_Ajax extends Model
             }
             return $data;
         }
+        public function cab_change() {
+            
+            $cid = intval($_POST['cid']);
+            
+            $field = stripslashes($_POST['field']);
+            
+            $data = stripslashes($_POST['data']);
+            
+            $query = "SELECT ud.`id` FROM `users` AS us LEFT JOIN `userdata` AS ud ON us.`id` = ud.`uid` WHERE us.`id` = {$cid}";
+            
+            $check = self::querySelect($query);
+            
+            if(!$check[0]['id']){
+                $out = self::setInsert("INSERT INTO `userdata`( `uid`, `{$field}`) VALUES ({$cid}, '{$data}')");
+            }else{
+                $out = self::actUpdate("UPDATE `userdata` SET `{$field}`='{$data}' WHERE `uid`={$cid}");
+            }
+            
+            return $out;
+            
+        }
 }
