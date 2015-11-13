@@ -6,9 +6,9 @@
 	define('WIDTH', 110); // ширина картинки
 	define('HEIGHT', 36); // висота картинки
 
-	$font_arr = array('AdverGothicCamC', 'Arial', 'CharlesworthBold', 'CyrillicOld');
+	$font_arr = array('AdverGothicCamC', 'Arial', 'CharlesworthBold', 'CyrillicOld','AnkeCalligraph');
 
-	$font = $font_arr[rand(0, 3)];
+	$font = $font_arr[rand(0, 4)];
 
 	// ім'я шрифту за замовчуванням (при бажанні його можна змінити)
 	define('FONT_NAME', "./fonts/{$font}.ttf");
