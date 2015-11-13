@@ -33,4 +33,15 @@ class Controller_Main extends Controller
                 
 		$this->view->generate('forget_view.php', 'template_view.php',$data);
         }
+         function action_change() {
+            
+                $data = $this->model->update($_POST['nick'],  $_POST['psw'],$_POST['email']);
+                
+                if($data){
+                    $this->view->generate('welcome_view.php', 'template_view.php',$data);
+                }else{
+                   header( 'Location: /', true, 307);
+                }
+            
+        }
 }

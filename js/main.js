@@ -12,7 +12,7 @@ function reload_image(){
 }
 
 function go(){
-    document.location = '/welcome';
+    document.location = '/welcome/cab/';
 }
 $(document).ready(function(){
     if(cid > 0){

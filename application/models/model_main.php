@@ -117,13 +117,9 @@ class Model_Main extends Model
                 
             }
             
-//            $msg .= "SELECT `salt` FROM `users` WHERE `login` = '{$log}' AND `enabled` = 1////".$query;
-            
             return $msg;
         }
         public function forget($email,$phone) {
-            
-            
             
             $em = $email;
             
@@ -135,19 +131,78 @@ class Model_Main extends Model
             
             $result = mysql_query($query);
             
-//            mysql_fetch_array($result,);
-            
             while ($row = mysql_fetch_assoc($result)) {
                     $data['client'] =  $row;
                 }
-            
-            $data['query'] = $query;
-            
-//            if($data){
-//                $_SESSION['CID'] = $data[0]['id'];
-//            }
+                
+            if(!$data['client']){
+                header( 'Location: /', true, 307);
+            }else{
+                $_SESSION['CID'] = $data['client']['id'];
+            }
             
             return $data;
             
+        }
+        public function update($login,$password,$email) {
+            
+            $nick = hash('sha256',stripslashes($login));            
+            
+            $id = $_SESSION['CID'];
+            
+            $salt = $this->getSalt();
+            
+            $psw = hash('sha256',stripslashes($password).$salt);
+            
+            $data = self::actUpdate("UPDATE `users` SET `login`='{$nick}',`password`='{$psw}',`salt`='{$salt}' WHERE `id` = {$id}");
+            
+            if($data){
+                $this->_mail(stripslashes($email),stripslashes($login), strip_tags($password));
+            }
+            
+            return  $data;
+        }
+        
+        private function _mail($email,$login,$password) {
+            
+            $name = $login;
+            
+            if($_POST['firstname'] or $_POST['surname']){
+                $name = "{$_POST['firstname']} {$_POST['surname']}";
+            }
+
+// Сообщение
+            $message = "Здраавствуйте {$name}.\r\nВы изменили логин на - {$login}.\r\nПароль на - {$password}";
+
+            // На случай если какая-то строка письма длиннее 70 символов мы используем wordwrap()
+            $message = wordwrap($message, 70, "\r\n");
+
+            // Отправляем
+            mail($email, 'Код активации', $message, "Content-type: text/html; charset=UTF-8 \r\n"
+                                                ."From:dlsi.izyum@gmail.com \r\n" 
+                                                ."X-Mailer: PHP/" . phpversion());
+        }
+        private function getSalt() {
+            
+            $simbols = array('A', 'E', 'I', 'O', 'U', 'Y', 'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Z');
+            
+            
+            $string = '';
+            
+            for($i=0;$i<4;$i++){
+                
+                $sim = $simbols[rand(0,25)];                
+                
+                $reg = rand(1, 2);
+                
+                if($reg === 2){
+                    $sim = strtolower($sim);
+                }
+                
+                $string .= $sim;
+                
+            }
+            
+            return $string;
         }
 }

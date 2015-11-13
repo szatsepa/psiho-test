@@ -11,7 +11,7 @@ class Route
 	static function start()
 	{
 		// контроллер и действие по умолчанию
-		$controller_name = 'Main';
+		$controller_name = 'main';
 		$action_name = 'index';
                 $list = NULL;
 		$param = NULL;
@@ -25,7 +25,7 @@ class Route
 		
                 $check = NULL;
                 
-                $array = array('Main','registration');
+                $array = array('main','registration');
                 
                 foreach ($array as $value) {
                     if($controller_name === $value){
@@ -37,7 +37,7 @@ class Route
                 if(!isset($_COOKIE['CID']) and !$check){
                     header( 'Location: /', true, 307);
                 }
-//                sselseif($check){}
+                
 //                   получаем имя экшена
                     if ( !empty($routes[2]) )
                     {
@@ -62,10 +62,10 @@ class Route
 		$action_name = 'action_'.$action_name;
 
 		
-		echo "Model: $model_name,";
-		echo "Controller: $controller_name ,";
-		echo "Action: $action_name <br>";
-		var_dump($routes);
+//		echo "Model: $model_name,";
+//		echo "Controller: $controller_name ,";
+//		echo "Action: $action_name <br>";
+//		var_dump($routes);
 
 		// подцепляем файл с классом модели (файла модели может и не быть)
 

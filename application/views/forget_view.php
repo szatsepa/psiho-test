@@ -1,13 +1,13 @@
 <?php
-@var_dump($data);
+//@var_dump($data);
 //echo "<br/>";
 //@var_dump($_SESSION);
 //echo "<br/>";
 //@var_dump($_COOKIE);
 ?>
-<h1>Welcome!&nbsp;<?php echo "{$data[0]['firstname']}&nbsp;{$data[0]['surname']}"; ?></h1>
+<h1>Welcome!&nbsp;<?php echo "{$data['client']['firstname']}&nbsp;{$data['client']['surname']}"; ?></h1>
 <div align=center>
-    <form action="/welcome/change" method="post">
+    <form action="/main/change" method="post">
      <table border="0">
          <tbody>
              <tr>
@@ -15,7 +15,7 @@
                    Ваше имя:   
                  </td>
                  <td>
-                     <input type="text" name="firstname" value="<?php echo "{$data[0]['firstname']}";?>"  readonly=""/>
+                     <input type="text" name="firstname" value="<?php echo "{$data['client']['firstname']}";?>"  readonly=""/>
                  </td>
              </tr>
              <tr>
@@ -23,7 +23,7 @@
                    Ваша фамилия:   
                  </td>
                  <td>
-                     <input type="text" name="surname" readonly="" value="<?php echo "{$data[0]['surname']}";?>" />
+                     <input type="text" name="surname" readonly="" value="<?php echo "{$data['client']['surname']}";?>" />
                  </td>
              </tr>
              <tr>
@@ -57,7 +57,7 @@
                     Ваш EMail(электронная почта): 
                  </td>
                  <td>
-                     <input id="email" type="text" value="<?php echo "{$data[0]['email']}";?>" readonly="" /> 
+                     <input id="email" type="text" name="email" value="<?php echo "{$data['client']['email']}";?>" readonly="" /> 
                  </td>
              </tr>
              <tr>
@@ -65,7 +65,7 @@
                      Номер вашего телефона:
                  </td>
                  <td>
-                     <input type="text" value="<?php echo "{$data[0]['phone']}";?>" readonly=""/> 
+                     <input type="text" value="<?php echo "{$data['client']['phone']}";?>" readonly=""/> 
                  </td>
              </tr>
                          
