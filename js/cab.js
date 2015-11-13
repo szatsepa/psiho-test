@@ -8,6 +8,11 @@ $(document).ready(function(){
         var nm = $(this).parent().parent().find("td:eq(0)").attr('id');
         var str = $(obj).find("td:eq(1)").text();
         $(obj).find("td:eq(1)").empty().html("<input class='change' name='"+nm+"' type='text' value='"+str+"' autofocus/>");
+        $(this).removeClass("ico-edit").addClass("ico-done").attr({'title':'изменить'});
+        
+    });
+    $("a.ico-done").live('click',function(){
+        
         
     });
 });

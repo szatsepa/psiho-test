@@ -22,31 +22,7 @@ class Controller_Welcome extends Controller
 		$this->view->generate('welcome_view.php', 'template_view.php',$data);
 	
         }
-//        
-//        function action_forget() {
-//            
-//                $em = stripcslashes($_POST['em']);
-//                
-//                $ph = stripslashes($_POST['phone']);
-//            
-//                $data = $this->model->forget($em,$ph);
-//                
-////                todo if data = null go to main
-//                
-//		$this->view->generate('forget_view.php', 'template_view.php',$data);
-//        }
         
-//        function action_change() {
-//            
-//                $data = $this->model->update($_POST['nick'],$_POST['psw']);
-//                
-//                if($data){
-//                    $this->view->generate('welcome_view.php', 'template_view.php',$data);
-//                }else{
-////                    todo
-//                }
-//            
-//        }
         function action_cab() {
             
                 $data = $this->model->cab();

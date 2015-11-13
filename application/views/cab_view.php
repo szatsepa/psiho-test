@@ -1,9 +1,9 @@
 <?php
         var_dump($data);
         echo "<br/>";
-        var_dump($_SESSION);
-        echo "<br/>";
-        var_dump($_COOKIE);
+//        var_dump($_SESSION);
+//        echo "<br/>";
+//        var_dump($_COOKIE);
 //        echo "<br/>";
 //        var_dump($_SERVER);
 //        $firstname = $data[0]['firstname'];
@@ -22,7 +22,7 @@
                 if($row < 5 ){
                     echo "<tr><td id='{$key}'>{$cell[$key]}</td><td>{$value}</td><td></td></tr>";
                 }else{
-                    echo "<td id='{$key}'>{$cell[$key]}</td><td>{$value}</td><td><a class='ico-edit'></a></td></tr>";
+                    echo "<td id='{$key}'>{$cell[$key]}</td><td>{$value}</td><td><a class='ico-edit' title='редактировать'></a></td></tr>";
                 }
                 $row++;
             }

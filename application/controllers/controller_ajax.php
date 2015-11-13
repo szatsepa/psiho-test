@@ -9,7 +9,7 @@ class Controller_Ajax extends Controller
 	
 	function action_index()
 	{
-		echo 'PIZDETS';
+		
 	}
         public function action_checkL() {
             
